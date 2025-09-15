@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+<form method="POST">
+    <input type="text" name="descricao" placeholder="Nova tarefa">
+    <button type="submit">Adicionar</button>
+</form>
+<ul>
+    {% for tarefa in tarefas%}
+    <li>
+        {{tarefa.descricao}}
+        <a href="{{ url_for('edit', id=tarefa.id) }}">Editar</a>
+        <a href="{{ url_for('delete', id=tarefa.id) }}">Excluir</a>
+    </li>
+    {%endfor%}
+</ul>
+{% endblock %}
+
